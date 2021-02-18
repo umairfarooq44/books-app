@@ -1,0 +1,86 @@
+{
+  "name": "books-app",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack serve --mode development --config config/webpack.base.config.js --open --hot --history-api-fallback --env PLATFORM=local",
+    "prebuild": "rm -rf dist/",
+    "build": "webpack --mode production --config config/webpack.prod.config.js --env PLATFORM=production --progress",
+    "lint": "eslint src/",
+    "lint:write": "eslint src/ --fix",
+    "test": "jest --silent",
+    "test:watch": "jest --watch --silent",
+    "test:coverage": "jest --coverage --colors",
+    "prettier": "prettier --write src/**/*.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js|jsx)": [
+      "npm run lint:write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "axios": "^0.21.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/plugin-proposal-export-namespace-from": "^7.12.13",
+    "@babel/plugin-proposal-throw-expressions": "^7.12.13",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.12.15",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.16",
+    "@babel/preset-react": "^7.12.13",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^7.0.0",
+    "core-js": "^3.8.3",
+    "css-loader": "^5.0.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-jest-enzyme": "^7.1.2",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.5",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "html-webpack-plugin": "^5.1.0",
+    "husky": "^5.0.9",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "mini-css-extract-plugin": "^1.3.7",
+    "node-sass": "^5.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "prettier": "^2.2.1",
+    "react-test-renderer": "^17.0.1",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "5.22.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3",
+    "webpack-visualizer-plugin": "^0.1.11"
+  }
+}
