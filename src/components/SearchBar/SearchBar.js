@@ -35,11 +35,18 @@ const SearchBar = () => {
     dispatch(getBooks({ searchQuery: searchQuery.trim().replace(/ /g, '+'), pageNumber: 1 }));
   };
 
+  const onkeypress = (e) => {
+    if (e.keyCode === 13) {
+      onSearch();
+    }
+  };
+
   return (
     <Grid container justify="center">
       <TextField
         className={classes.textField}
         value={searchQuery}
+        onKeyDown={onkeypress}
         onChange={handleSearchChange}
         variant="outlined"
         helperText="Enter text to search the books"

@@ -8,7 +8,7 @@ import { getImageUrl } from '../../utils';
 
 const useStyles = makeStyles({
   container: {
-    minHeight: 500,
+    minHeight: 400,
   },
 });
 

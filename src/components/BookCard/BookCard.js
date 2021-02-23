@@ -34,10 +34,17 @@ const BookCard = ({ book }) => {
       <CardContent>
         <Tooltip title={book.title}>
           <Typography variant="h6">
-            {book.title?.length > 23 ? `${book.title?.substring(0, 23)}...` : book.title}
+            {book.title?.length > 20 ? `${book.title?.substring(0, 20)}...` : book.title}
           </Typography>
         </Tooltip>
         <Typography> by {book.author_name ? book.author_name[0] : 'UnKnown'}</Typography>
+        <Typography variant="caption" color="textSecondary" display="block">
+          First published in {book.first_publish_year}
+        </Typography>
+        <Typography variant="caption">
+          {book.edition_count} Editions in {book.language?.length} language
+          {book.language?.length > 1 ? 's' : ''}
+        </Typography>
       </CardContent>
     </Card>
   );
